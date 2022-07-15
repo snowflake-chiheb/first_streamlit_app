@@ -6,4 +6,4 @@ st.header('Breakfast Menu')
 st.text('🥣  Omega 3 & Blueberry otmeal')
 st.text('🥗 Kale, Spinach, Rocker smoothie')
 st.text('🐔 Hard-boiled Freee Range Egg')
-
+st.text('🥑🍞 Avocado Toast')
