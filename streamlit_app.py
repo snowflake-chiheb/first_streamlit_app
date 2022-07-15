@@ -1,5 +1,5 @@
 
-import stremlit as st
+import streamlit as st
 
 st.title('My Parents New Healthy Dinner')
 
