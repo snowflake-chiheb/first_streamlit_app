@@ -55,7 +55,7 @@ def load_fruit_list():
 def insert_fruit(fruit):
     with my_cnx.cursor() as my_cur:
         my_cur.execute("insert into  fruit_load_list values ('from stremlit') ")
-        return 'Thanks for adding' + fruit
+        return 'Thanks for adding ' + fruit
 
         
 st.header("The  fruit load  list contains :")
