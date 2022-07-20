@@ -43,3 +43,5 @@ st.header("The  fruit load  list contains :")
 st.dataframe(my_data_row)
 fruit_2_add = st.text_input('What fruit would you like to add  ?')
 st.write('Thanks for adding', fruit_2_add)
+
+my_cur.execute("insert into  fruit_load_list values ('from stremlit') ")
