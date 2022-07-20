@@ -56,7 +56,7 @@ def insert_fruit(fruit):
         return 'Thanks for adding ' + fruit
 
         
-st.header("The  fruit load  list contains :")
+st.header("View Our Fruit List - Add your Favorites !")
 
 if st.button('Get fruit load list'):
     # Snowflake connection 
