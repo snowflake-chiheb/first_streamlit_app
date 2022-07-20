@@ -25,15 +25,19 @@ st.dataframe(fruits_to_show)
 # API section 
 st.header("Fruityvice Fruit Advice!")
 # added an input to chose the fruit
+def get_fruit_data(fruit):
+    fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+ fruit_choice)
+    # load the data into a dataframe 
+    fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
+    return fruityvice_normalized
+
 try:
   fruit_choice = st.text_input('What fruit would you like information about?')
   if not fruit_choice:
     st.error('Please select a fruit to get informations.')
     
   else:
-    fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+ fruit_choice)
-    # load the data into a dataframe 
-    fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
+    fruityvice_normalized = get_fruit_data(fruit_choice)
     # ddissplay the dataframe in table format using sstreamlit
     st.dataframe(fruityvice_normalized)
     
