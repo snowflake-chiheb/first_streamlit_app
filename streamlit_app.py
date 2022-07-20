@@ -25,15 +25,19 @@ st.dataframe(fruits_to_show)
 # API section 
 st.header("Fruityvice Fruit Advice!")
 # added an input to chose the fruit
-fruit_choice = st.text_input('What fruit would you like information about?','Kiwi')
-st.write('The user entered ', fruit_choice)
-
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+ fruit_choice)
-
-# load the data into a dataframe 
-fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
-# ddissplay the dataframe in table format using sstreamlit
-st.dataframe(fruityvice_normalized)
+try:
+  fruit_choice = st.text_input('What fruit would you like information about?')
+  if fruit_choice:
+    fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+ fruit_choice)
+    # load the data into a dataframe 
+    fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
+    # ddissplay the dataframe in table format using sstreamlit
+    st.dataframe(fruityvice_normalized)
+  else:
+    st.error('Please select a fruit to get informations.')
+ 
+except URLError as e:
+  st.error()
 
 st.stop()
 # Snowflake connection 
